@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		49265C832227BB7A00923A66 /* TextsExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49265C822227BB7A00923A66 /* TextsExampleView.swift */; };
+		8561423C28A2CF840069C0ED /* CSS.svg in Resources */ = {isa = PBXBuildFile; fileRef = 8561423B28A2CF840069C0ED /* CSS.svg */; };
 		970AB811D179560D74930D39 /* Pods_Example_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5184A00051CAC5E360198B48 /* Pods_Example_macOS.framework */; };
 		A715CA7D215E472800EE7651 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715CA7C215E472800EE7651 /* ExampleViewController.swift */; };
 		A72862CB1F4308A50033893D /* AnimationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72862CA1F4308A50033893D /* AnimationsViewController.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		49265C822227BB7A00923A66 /* TextsExampleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextsExampleView.swift; sourceTree = "<group>"; };
 		5184A00051CAC5E360198B48 /* Pods_Example_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8561423B28A2CF840069C0ED /* CSS.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = CSS.svg; path = "Example-macOS/Assets/SVG/CSS.svg"; sourceTree = "<group>"; };
 		A715CA7C215E472800EE7651 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		A72862CA1F4308A50033893D /* AnimationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimationsViewController.swift; path = Examples/Animations/AnimationsViewController.swift; sourceTree = "<group>"; };
 		A72862CC1F430DF00033893D /* EasingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EasingViewController.swift; path = Examples/Easing/EasingViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		A768EAE01F42EDA300F22A17 /* SVG */ = {
 			isa = PBXGroup;
 			children = (
+				8561423B28A2CF840069C0ED /* CSS.svg */,
 				A768EAE11F42EDAE00F22A17 /* tiger.svg */,
 			);
 			name = SVG;
@@ -262,6 +265,7 @@
 			files = (
 				A753C9EC1F3DB18A006615A4 /* Assets.xcassets in Resources */,
 				A753C9EF1F3DB18A006615A4 /* Main.storyboard in Resources */,
+				8561423C28A2CF840069C0ED /* CSS.svg in Resources */,
 				A768EAE21F42EDAE00F22A17 /* tiger.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -111,7 +111,7 @@
         <!--Tab View Controller-->
         <scene sceneID="HCD-4m-c8h">
             <objects>
-                <tabViewController selectedTabViewItemIndex="6" id="hdB-7F-R9Q" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="3" id="hdB-7F-R9Q" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="3QN-7z-LrX"/>
                         <tabViewItem id="1e3-gs-UK8"/>
@@ -184,7 +184,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                             </customView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bPP-dr-CnF">
-                                <rect key="frame" x="254" y="33" width="92" height="55"/>
+                                <rect key="frame" x="253" y="33" width="94" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3MY-fR-U9d"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="bOo-JQ-Hsc"/>
@@ -296,7 +296,7 @@
         <!--SVG-->
         <scene sceneID="ZLO-Eh-m1d">
             <objects>
-                <viewController title="SVG" id="iWh-Ne-7Ns" sceneMemberID="viewController">
+                <viewController title="SVG" id="iWh-Ne-7Ns" customClass="ExampleViewController" customModule="Example_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Vz6-zz-0Xw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -307,14 +307,36 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="fileName" value="tiger"/>
                                 </userDefinedRuntimeAttributes>
                             </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nr6-xp-Qtj">
+                                <rect key="frame" x="243" y="3" width="114" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="OWL-GD-ise"/>
+                                    <constraint firstAttribute="width" constant="100" id="vsd-eh-gDv"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Test Var colors" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TcF-FA-yBd">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <color key="bezelColor" red="0.55561143160000004" green="0.16151350740000001" blue="0.14507743719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="contentTintColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <action selector="buttonTapped:" target="iWh-Ne-7Ns" id="Gjw-HD-vvd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yvE-72-Fe6" secondAttribute="trailing" id="4UL-4W-9YN"/>
+                            <constraint firstItem="Nr6-xp-Qtj" firstAttribute="top" secondItem="Vz6-zz-0Xw" secondAttribute="top" constant="470" id="6Qh-q8-GJx"/>
+                            <constraint firstAttribute="bottom" secondItem="Nr6-xp-Qtj" secondAttribute="bottom" constant="10" id="DS0-Sa-bBW"/>
                             <constraint firstItem="yvE-72-Fe6" firstAttribute="leading" secondItem="Vz6-zz-0Xw" secondAttribute="leading" id="Xi8-t8-OlL"/>
                             <constraint firstAttribute="bottom" secondItem="yvE-72-Fe6" secondAttribute="bottom" id="l48-pg-5Kp"/>
                             <constraint firstItem="yvE-72-Fe6" firstAttribute="top" secondItem="Vz6-zz-0Xw" secondAttribute="top" id="nQP-Ld-hzQ"/>
+                            <constraint firstItem="Nr6-xp-Qtj" firstAttribute="centerX" secondItem="yvE-72-Fe6" secondAttribute="centerX" id="vX5-TA-OWo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="svgView" destination="yvE-72-Fe6" id="b8K-m8-ZfS"/>
+                    </connections>
                 </viewController>
                 <customObject id="SgK-6P-fu5" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
