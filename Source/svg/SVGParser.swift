@@ -620,7 +620,7 @@ open class SVGParser {
 
     /// Parse an RGB
     /// - returns: Color for the corresponding SVG color string in RGB notation.
-    fileprivate func parseRGBNotation(colorString: String) -> Color {
+    open class func parseRGBNotation(colorString: String) -> Color {
         let from = colorString.index(colorString.startIndex, offsetBy: 4)
         let inPercentage = colorString.contains("%")
         let sp = String(colorString.suffix(from: from))
@@ -699,7 +699,7 @@ open class SVGParser {
         return styleAttributes
     }
 
-    fileprivate func createColorFromHex(_ hexString: String, opacity: Double = 1) -> Color {
+    open class func createColorFromHex(_ hexString: String, opacity: Double = 1) -> Color {
         var cleanedHexString = hexString
         if hexString.hasPrefix("#") {
             cleanedHexString = hexString.replacingOccurrences(of: "#", with: "")
@@ -714,7 +714,19 @@ open class SVGParser {
         } else {
             Scanner(string: cleanedHexString).scanHexInt32(&rgbValue)
         }
-
+        
+        if cleanedHexString.count == 8 {
+            let red = CGFloat((rgbValue >> 24) & 0xff)
+            let green = CGFloat((rgbValue >> 16) & 0xff)
+            let blue = CGFloat((rgbValue >> 08) & 0xff)
+            let alpha = CGFloat((rgbValue >> 00) & 0xff)
+            var newOpacity = 0.0
+            
+            if alpha > 0 {
+                newOpacity = opacity * Double(alpha/255.0)
+            }
+            return Color.rgba(r: Int(red), g: Int(green), b: Int(blue), a: newOpacity)
+        }
         let red = CGFloat((rgbValue >> 16) & 0xff)
         let green = CGFloat((rgbValue >> 08) & 0xff)
         let blue = CGFloat((rgbValue >> 00) & 0xff)
@@ -722,7 +734,7 @@ open class SVGParser {
         return Color.rgba(r: Int(red), g: Int(green), b: Int(blue), a: opacity)
     }
 
-    fileprivate func createColor(_ colorString: String, opacity: Double = 1) -> Color? {
+    open class func createColor(_ colorString: String, opacity: Double = 1) -> Color? {
         if colorString == "none" || colorString == "transparent" {
             return .none
         }
@@ -765,7 +777,7 @@ open class SVGParser {
             fillColor = currentColor
         }
 
-        return createColor(fillColor.replacingOccurrences(of: " ", with: ""), opacity: opacity)
+        return SVGParser.createColor(fillColor.replacingOccurrences(of: " ", with: ""), opacity: opacity)
     }
 
     fileprivate func getPatternFill(pattern: UserSpacePattern, locus: Locus?) -> Pattern {
@@ -799,7 +811,7 @@ open class SVGParser {
         if let colorId = parseIdFromUrl(strokeColor) {
             fill = defFills[colorId]
         } else {
-            fill = createColor(strokeColor.replacingOccurrences(of: " ", with: ""), opacity: opacity)
+            fill = SVGParser.createColor(strokeColor.replacingOccurrences(of: " ", with: ""), opacity: opacity)
         }
 
         if let strokeFill = fill {
@@ -1633,7 +1645,7 @@ open class SVGParser {
             if stopColor == SVGKeys.currentColor, let currentColor = groupStyle[SVGKeys.color] {
                 stopColor = currentColor
             }
-            color = createColor(stopColor.replacingOccurrences(of: " ", with: ""), opacity: opacity)!
+            color = SVGParser.createColor(stopColor.replacingOccurrences(of: " ", with: ""), opacity: opacity)!
         }
 
         return Stop(offset: offset, color: color)
